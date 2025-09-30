@@ -7,14 +7,7 @@ import 'core/app_export.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Supabase
-  try {
-    // Remove this block - SupabaseService.initialize() doesn't exist
-  } catch (e) {
-    debugPrint('Failed to initialize Supabase: $e');
-  }
-
-  // Initialize Supabase
+  // Initialize Supabase with environment variables
   try {
     await SupabaseService.instance.initialize();
     print('Supabase initialized successfully');

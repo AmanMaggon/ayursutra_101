@@ -14,13 +14,9 @@ class SupabaseService {
   SupabaseClient get client => _client;
 
   Future<void> initialize() async {
-    const String supabaseUrl = String.fromEnvironment('SUPABASE_URL');
-    const String supabaseAnonKey = String.fromEnvironment('SUPABASE_ANON_KEY');
-
-    if (supabaseUrl.isEmpty || supabaseAnonKey.isEmpty) {
-      throw Exception(
-          'Supabase URL and Anon Key must be provided in environment variables');
-    }
+    // Use hardcoded values from env.json for now
+    const String supabaseUrl = 'https://ytwzpumcwwvvdkgeochv.supabase.co';
+    const String supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0d3pwdW1jd3d2dmRrZ2VvY2h2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNDE0MTYsImV4cCI6MjA3NDcxNzQxNn0.sZoGWpJVkQ68AIjFbwn1gwx074ILM_ArVpHO4-DqhEw';
 
     await Supabase.initialize(
       url: supabaseUrl,

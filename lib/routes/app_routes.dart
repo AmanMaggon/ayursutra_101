@@ -38,7 +38,6 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> routes = {
     initial: (context) => const SplashScreen(),
-    splash: (context) => const SplashScreen(),
     authenticationEntryScreen: (context) => const AuthenticationEntryScreen(),
     accountCreationScreen: (context) => const AccountCreationScreen(),
     otpVerificationScreen: (context) => const OtpVerificationScreen(),

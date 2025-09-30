@@ -103,7 +103,7 @@ class _CustomTabBarState extends State<CustomTabBar>
         isScrollable: widget.isScrollable,
         labelColor: widget.selectedColor ?? colorScheme.primary,
         unselectedLabelColor: widget.unselectedColor ??
-            colorScheme.onSurface.withValues(alpha: 0.6),
+            colorScheme.onSurface.withOpacity(0.6),
         indicatorColor: widget.indicatorColor ?? colorScheme.primary,
         indicatorWeight: widget.indicatorWeight ?? 2.0,
         labelStyle: GoogleFonts.inter(
@@ -117,7 +117,7 @@ class _CustomTabBarState extends State<CustomTabBar>
         tabs: widget.tabs
             .map((tab) => Tab(
                   text: tab.text,
-                  icon: tab.icon,
+                  icon: tab.icon != null ? Icon(tab.icon) : null,
                 ))
             .toList(),
       ),
@@ -133,7 +133,7 @@ class _CustomTabBarState extends State<CustomTabBar>
         isScrollable: widget.isScrollable,
         labelColor: widget.selectedColor ?? colorScheme.onPrimary,
         unselectedLabelColor: widget.unselectedColor ??
-            colorScheme.onPrimary.withValues(alpha: 0.7),
+            colorScheme.onPrimary.withOpacity(0.7),
         indicatorColor: widget.indicatorColor ?? colorScheme.onPrimary,
         indicatorWeight: widget.indicatorWeight ?? 2.0,
         labelStyle: GoogleFonts.inter(
@@ -147,7 +147,7 @@ class _CustomTabBarState extends State<CustomTabBar>
         tabs: widget.tabs
             .map((tab) => Tab(
                   text: tab.text,
-                  icon: tab.icon,
+                  icon: tab.icon != null ? Icon(tab.icon) : null,
                 ))
             .toList(),
       ),
@@ -187,7 +187,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                     border: Border.all(
                       color: isSelected
                           ? (widget.selectedColor ?? colorScheme.primary)
-                          : colorScheme.outline.withValues(alpha: 0.3),
+                          : colorScheme.outline.withOpacity(0.3),
                     ),
                   ),
                   child: Row(
@@ -200,7 +200,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                           color: isSelected
                               ? colorScheme.onPrimary
                               : (widget.unselectedColor ??
-                                  colorScheme.onSurface.withValues(alpha: 0.6)),
+                                  colorScheme.onSurface.withOpacity(0.6)),
                         ),
                         const SizedBox(width: 4),
                       ],
@@ -213,7 +213,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                           color: isSelected
                               ? colorScheme.onPrimary
                               : (widget.unselectedColor ??
-                                  colorScheme.onSurface.withValues(alpha: 0.6)),
+                                  colorScheme.onSurface.withOpacity(0.6)),
                         ),
                       ),
                     ],
@@ -238,7 +238,7 @@ class _CustomTabBarState extends State<CustomTabBar>
             isScrollable: widget.isScrollable,
             labelColor: widget.selectedColor ?? colorScheme.primary,
             unselectedLabelColor: widget.unselectedColor ??
-                colorScheme.onSurface.withValues(alpha: 0.6),
+                colorScheme.onSurface.withOpacity(0.6),
             indicator: UnderlineTabIndicator(
               borderSide: BorderSide(
                 color: widget.indicatorColor ?? colorScheme.primary,
@@ -257,13 +257,13 @@ class _CustomTabBarState extends State<CustomTabBar>
             tabs: widget.tabs
                 .map((tab) => Tab(
                       text: tab.text,
-                      icon: tab.icon,
+                      icon: tab.icon != null ? Icon(tab.icon) : null,
                     ))
                 .toList(),
           ),
           Container(
             height: 1,
-            color: colorScheme.outline.withValues(alpha: 0.2),
+            color: colorScheme.outline.withOpacity(0.2),
           ),
         ],
       ),

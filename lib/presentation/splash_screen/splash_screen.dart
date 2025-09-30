@@ -82,18 +82,7 @@ class _SplashScreenState extends State<SplashScreen>
                       ),
                     ),
                   ),
-                  Positioned.fill(
-                    child: Image.asset(
-                      isDark
-                          ? 'assets/images/splash_dark.png'
-                          : 'assets/images/splash_light.png',
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        // If asset not found, keep gradient background
-                        return const SizedBox.shrink();
-                      },
-                    ),
-                  ),
+                  // Background pattern or texture can be added here if needed
                   Center(
                     child: FadeTransition(
                       opacity: _fadeInAnimation,
@@ -101,12 +90,21 @@ class _SplashScreenState extends State<SplashScreen>
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Semantics(
-                            label: 'App logo',
+                            label: 'Ayursutra logo',
                             image: true,
-                            child: SvgPicture.asset(
-                              'assets/images/img_app_logo.svg',
+                            child: Image.asset(
+                              'assets/images/Ayursutra_Logo_1_-1759156879861.png',
                               width: logoSize,
                               height: logoSize,
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) {
+                                // Fallback to a simple icon if image fails to load
+                                return Icon(
+                                  Icons.health_and_safety,
+                                  size: logoSize,
+                                  color: theme.colorScheme.primary,
+                                );
+                              },
                             ),
                           ),
                           const SizedBox(height: 20),
